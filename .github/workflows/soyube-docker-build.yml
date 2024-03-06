@@ -11,6 +11,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: Set Vars
+          id: vars
+          run: echo "tag=${GITHUB_REF#refs/*/}" >> $GITHUB_OUTPUT
       - name: Setup pnpm
         uses: pnpm/action-setup@v2
         with:
@@ -42,6 +45,6 @@ jobs:
           file: ./Dockerfile.ci
           platforms: linux/amd64,linux/arm64
           push: true
-          tags: hadi4ii/piped-frontend:latest
+          tags: hadi4ii/piped-frontend:${{ steps.vars.outputs.tag }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
