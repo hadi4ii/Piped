@@ -11,20 +11,14 @@ jobs:
   build-docker-image:
     runs-on: ubuntu-latest
     steps:
-      - id: get_version
-        name: Get version
-        uses: jannemattila/get-version-from-tag@v3
-      - name: Display version
-        run: |
-          VERSION=$(echo "${{ steps.get_version.outputs.version }}")
-          echo $VERSION
       - uses: actions/checkout@v4
-#      - name: Set var
-#        id: vars
-#        run: echo "tag=${GITHUB_REF#refs/*/}" >> $GITHUB_OUTPUT
-#      - run: echo "tag=${GITHUB_REF#refs/*/}"
-#      - run: echo ${{ secrets.DOCKER_USERNAME }}
-#      - run: echo ${{ secrets.DOCKERHUB_TOKEN }}
+      - name: Set var
+        id: vars
+        run: echo "tag=${GITHUB_REF#refs/*/}" >> $GITHUB_OUTPUT
+      - run: echo "tag=${GITHUB_REF#refs/*/}"
+      - run: echo ${{ secrets.DOCKER_USERNAME }}
+      - run: echo ${{ secrets.DOCKERHUB_TOKEN }}
+      - run: echo ${{ steps.vars.outputs.tag }}
       - name: Setup pnpm
         uses: pnpm/action-setup@v2
         with:
