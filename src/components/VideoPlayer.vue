@@ -446,7 +446,8 @@ export default {
                 const overflowMenuButtons = ["quality", "captions", "picture_in_picture", "playback_rate", "airplay"];
 
                 if (this.isEmbed) {
-                    overflowMenuButtons.push("open_new_tab");
+                    // remove open in new tab button at embed overlay menu
+                    // overflowMenuButtons.push("open_new_tab");
                 }
 
                 const config = {
