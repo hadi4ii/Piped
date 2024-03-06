@@ -8,21 +8,19 @@
                 </keep-alive>
             </router-view>
         </div>
-
-        <FooterComponent />
     </div>
 </template>
 
 <script>
 import NavBar from "./components/NavBar.vue";
-import FooterComponent from "./components/FooterComponent.vue";
+// import FooterComponent from "./components/FooterComponent.vue";
 
 const darkModePreference = window.matchMedia("(prefers-color-scheme: dark)");
 
 export default {
     components: {
         NavBar,
-        FooterComponent,
+        // FooterComponent,
     },
     data() {
         return {
