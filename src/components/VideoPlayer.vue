@@ -73,7 +73,7 @@ export default {
     },
     computed: {
         shouldAutoPlay: _this => {
-            return _this.getPreferenceBoolean("playerAutoPlay", true) ;
+            return _this.getPreferenceBoolean("playerAutoPlay", true);
         },
         preferredVideoCodecs: _this => {
             var preferredVideoCodecs = [];
