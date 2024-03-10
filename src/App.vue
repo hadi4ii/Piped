@@ -1,7 +1,6 @@
 <template>
     <div class="reset min-h-screen w-full flex flex-col px-1vw py-5 antialiased" :class="[theme]">
         <div class="flex-1">
-            <NavBar />
             <router-view v-slot="{ Component }">
                 <keep-alive :max="5">
                     <component :is="Component" :key="$route.fullPath" />
@@ -12,16 +11,12 @@
 </template>
 
 <script>
-import NavBar from "./components/NavBar.vue";
+// import NavBar from "./components/NavBar.vue";
 // import FooterComponent from "./components/FooterComponent.vue";
 
 const darkModePreference = window.matchMedia("(prefers-color-scheme: dark)");
 
 export default {
-    components: {
-        NavBar,
-        // FooterComponent,
-    },
     data() {
         return {
             theme: "dark",
