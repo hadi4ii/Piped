@@ -50,6 +50,6 @@ jobs:
           file: ./Dockerfile.ci
           platforms: linux/amd64,linux/arm64
           push: true
-          tags: hadi4i/piped-frontend:${{ steps.vars.outputs.tag }}
+          tags: hadi4i/piped-frontend:${{ steps.vars.outputs.tag }} , hadi4i/piped-frontend:latest
           cache-from: type=gha
           cache-to: type=gha,mode=max
